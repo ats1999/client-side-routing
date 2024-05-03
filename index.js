@@ -1,16 +1,17 @@
 const router = {
-  init: () => {
+  init() {
     console.log("init");
     const links = document.querySelectorAll("a");
     Array.from(links).forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
         const route = link.getAttribute("href");
+        console.log("Route clicked: ", route);
         router.go(route);
       });
     });
   },
-  go: (route) => {
+  go(route) {
     console.log("go", route);
     pushStateToNavigationHistory(route);
     const container = document.getElementById("container");
@@ -48,5 +49,3 @@ window.addEventListener("DOMContentLoaded", () => {
   router.init();
   router.go(window.location.pathname);
 });
-
-// TODO: back arrow is not working

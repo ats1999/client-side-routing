@@ -10,6 +10,7 @@ app.use(express.static(path.join(__dirname)));
 // Route for serving the HTML file
 app.get("*", (req, res, next) => {
   // Check if requested URL does not end with .js extension
+  // /user/rahul
   if (!req.url.endsWith(".js")) {
     return res.sendFile(path.join(__dirname, "index.html"));
   }
